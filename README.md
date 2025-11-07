@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+DestiAlarm — Smart Travel Alert System
+Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DestiAlarm is a React-based web application designed to assist travelers by providing real-time tracking and voice-based alerts when approaching their destination. It continuously monitors the user’s live GPS location, calculates the distance to the destination, and triggers both voice and sound alarms when the user reaches a predefined proximity.
 
-## Available Scripts
+Motivation and Challenges
 
-In the project directory, you can run:
+During development, one of the main challenges was integrating a live map with accurate location tracking and dynamic route visualization without relying on paid or restricted APIs.
+Initially, Google Maps API was considered, but it was avoided due to:
 
-### `npm start`
+Limited free quota and billing requirements.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+API key management complexity.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The need for a completely open-source and dependency-free solution.
 
-### `npm test`
+Instead, open-source alternatives such as OpenStreetMap, Leaflet, and OSRM (Open Source Routing Machine) were used to achieve similar functionality with full customization and no usage restrictions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Key Features
 
-### `npm run build`
+Real-time GPS tracking using the Geolocation API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dynamic route generation and visualization with OSRM Routing API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Interactive map rendering using Leaflet and OpenStreetMap.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Adjustable alarm radius to set distance-based alerts.
 
-### `npm run eject`
+Integrated voice and sound notifications through the Web Speech and Audio APIs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Options to mute, replay, and reset alarms for flexible control.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clean and responsive user interface developed using React.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Technology Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Category	Technology
+Frontend	React (Vite)
+Mapping	Leaflet + OpenStreetMap
+Routing	OSRM Routing API
+Voice & Sound	Web Speech API, HTML Audio API
+Location	Browser Geolocation API
+Working Principle
 
-## Learn More
+The user enters a destination and selects an alert distance (in meters).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The system continuously tracks the live GPS coordinates.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The OSRM API generates a driving route and updates dynamically based on movement.
 
-### Code Splitting
+When the user approaches the defined proximity, a voice alert and sound alarm are triggered automatically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Once the user reaches the final point, the system stops the alarm and confirms arrival.
 
-### Analyzing the Bundle Size
+Advantages and Uniqueness
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Fully open-source and free — no paid API dependencies.
 
-### Making a Progressive Web App
+Real-time voice feedback for a hands-free experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Lightweight and responsive, suitable for both mobile and desktop use.
 
-### Advanced Configuration
+Supports offline-friendly behavior once the map tiles are loaded.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Can be extended to applications like public transport alerts, delivery tracking, or travel assistance.
 
-### Deployment
+Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Integration with background service workers for alerts even when minimized.
 
-### `npm run build` fails to minify
+Support for offline map caching.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Advanced route optimization with real-time traffic APIs.
+
+Multi-language voice alerts.
